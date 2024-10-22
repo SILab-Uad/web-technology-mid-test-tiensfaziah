@@ -1,6 +1,6 @@
 // TODO: Implement the password generation logic based on user input
 
-const generatePassword = (length, options) => {
+export const generatePassword = (length, options) => {
     // Character sets for password generation
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -26,8 +26,9 @@ const generatePassword = (length, options) => {
         characterSet += specialChars;
     }
 
-    if (characterSet === "") {
-        return "Pilih satu opsi";
+
+    if (characterSet === '') {
+        throw new Error('At least one character type must be selected.');
     }
 
     // TODO: Generate the password based on the selected criteria
@@ -38,7 +39,3 @@ const generatePassword = (length, options) => {
     }
     return password;
 };
-
-// TODO: Add event listener to the button to call generatePassword and display the output
-const password = generatePassword(length, options);
-// BONUS: Implement the copy to clipboard functionality
